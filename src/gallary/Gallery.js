@@ -77,23 +77,23 @@ export default function GameGallery({ customer }) {
 
 
     return (
-        customer.id_Type == 1 ? <div><button id="BackButton" onClick={() => navigate('/customer')}>Back</button>
+        customer.id_Type == 1 ? <div className='games-frame'><button id="BackButton" onClick={() => navigate('/customers/customer')}>Back</button>
             <h3>Our Games</h3>
             <input type="checkbox" id="myCheck" onChange={() => availableonly()} />
             <label for="myCheck">show only games which are available for borrowing</label>
             {
                 <div>
-                    <table className="tableDeco">
-                        {allGames.map(x => <tr className="rowInTable" key={x.code}>
-                            <td>{x.name}</td>
-                            <td>{x.minimalAge}</td>
-                            <td>{x.maximalAge}</td>
-                            <td>{x.company}</td>
-                            <td>{x.minutesDuration}</td>
-                            <td>{x.existingNumber}</td>
-                            <td><button onClick={() => knowGame(x.id)}> Do I know it? </button></td>
-                        </tr>)}
-                    </table>
+
+                    {allGames.map(x => <div className="game-card" key={x.code}>
+                        <div><label>name:</label> <label>{x.name}</label></div>
+                        <div><label>minimalAge:</label>  <label>{x.minimalAge}</label></div>
+                        <div><label>maximalAge:</label>  <label>{x.maximalAge}</label></div>
+                        <div><label>company:</label> <label>{x.company}</label></div>
+                        <div><label>minutesDuration:</label> <label>{x.minutesDuration}</label></div>
+                        <div><label>existingNumber:</label> <label>{x.existingNumber}</label></div>
+                        <button onClick={() => knowGame(x.id)}> Do I know it? </button>
+                    </div>)}
+
                 </div>}
         </div> : <div><button onClick={() => navigate('/manager')}>Back</button>
             <h3>Our Games</h3>
@@ -102,13 +102,21 @@ export default function GameGallery({ customer }) {
             {
                 <div>
                     <table>
-                        {allGames.map(x => <tr key={x.code}>
-                            <td>{x.name}</td>
-                            <td>{x.minimalAge}</td>
-                            <td>{x.maximalAge}</td>
-                            <td>{x.company}</td>
-                            <td>{x.minutesDuration}</td>
-                            <td>{x.existingNumber}</td>
+                        {allGames.map(x => 
+                        <tr key={x.code}>
+                            {/* <label>{x.name}</label>
+                            <label>{x.minimalAge}</label>
+                            <label>{x.maximalAge}</label>
+                            <label>{x.company}</label>
+                            <label>{x.minutesDuration}</label>
+                            <label>{x.existingNumber}</label> */}
+
+                            <div><label>name:</label> <label>{x.name}</label></div>
+                        <div><label>minimalAge:</label>  <label>{x.minimalAge}</label></div>
+                        <div><label>maximalAge:</label>  <label>{x.maximalAge}</label></div>
+                        <div><label>company:</label> <label>{x.company}</label></div>
+                        <div><label>minutesDuration:</label> <label>{x.minutesDuration}</label></div>
+                        <div><label>existingNumber:</label> <label>{x.existingNumber}</label></div>
                         </tr>)}
                     </table>
                 </div>}

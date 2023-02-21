@@ -24,6 +24,26 @@
   display: flex;
   flex-direction: column;
 }
+.games-frame {
+  background-color: white;
+  width: 90%;
+  margin: 2%;
+  position: fixed;
+  min-width: 96%;
+  min-height: 80%;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: -10px 10px 20px 0 rgba(30, 30, 30, 0.05);
+}
+.game-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: -10px 10px 20px 0 rgba(30, 30, 30, 0.05);
+  width: max-content;
+  padding: 1em;
+}
 input,
 input:focus {
   border: 0;
@@ -38,7 +58,7 @@ input[type="reset"],
 button {
   width: 158px;
   height: 39px;
-  margin: 15px auto ;
+  margin: 15px auto;
   padding: 12px 0 8.1px;
   border-radius: 5px;
   box-shadow: 0 23px 33px -15px rgba(253, 232, 94, 0.59);

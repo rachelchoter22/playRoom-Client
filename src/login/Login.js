@@ -26,7 +26,7 @@ export default function Login({ setUser }) {
                     alert("Wrong details were inserted")
                 setUser(answer)
                 if (answer.id_Type === 1) {
-                    navigate('/customer')
+                    navigate('/customers/customer')
                 }
                 else {
                     navigate('/manager')
