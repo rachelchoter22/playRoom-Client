@@ -1,13 +1,24 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: ShantellSans-Light, Mukta-Light;
+  background-image: url(../public/images/play-room.jpg);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: ShantellSans-Bold;
+  src: url(../public/fonts/ShantellSans/ShantellSans-Bold.ttf);
+}
+@font-face {
+  font-family: ShantellSans-BoldItalic;
+  src: url(../public/fonts/ShantellSans/ShantellSans-BoldItalic.ttf);
+}
+@font-face {
+  font-family: ShantellSans-Light;
+  src: url(../public/fonts/ShantellSans/ShantellSans-Light.ttf);
+}
+@font-face {
+  font-family: Mukta-Light;
+  src: url(../public/fonts/Mukta/Mukta-Light.ttf);
 }

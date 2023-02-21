@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.scss';
 import { userInfo } from "os";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
@@ -62,7 +62,7 @@ export default function AddBorrowedGame({ customer }) {
             gamesAvailable.map(e =>
                 <div key={e.id}>
                     <lable>{e.name} {e.id}</lable>
-                    <input id="button" type='submit' value='Borrow' onClick={() => borrowGame(customerCode, e.id)} />
+                    <input class="submit-btn" type='submit' value='Borrow' onClick={() => borrowGame(customerCode, e.id)} />
                 </div>
             )
         }

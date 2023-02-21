@@ -12,7 +12,7 @@ export default function Manager({ idType }) {
     return <div id="Manager">
         <button onClick={()=>navigator("/Login")}>Back</button>
         <h3>Manager</h3>
-        <Link to={"/Gallery"}>Games</Link><br></br><br></br>
-        <Link to={"/viewAllCustomers"}>Customers</Link>
+        <Link to={"/gallary/Gallery"}>Games</Link><br></br><br></br>
+        <Link to={"/customers/viewAllCustomers"}>Customers</Link>
     </div>
 }

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-// const [customers, setCustomers] = useState([]);
 
 const schema = yup.object({
   id: yup.string().required(),

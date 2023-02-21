@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.scss';
 import { userInfo } from "os";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
@@ -96,9 +96,9 @@ export default function BorrowedGame({ customer }) {
             <div id="BorrowedGame">
                 <button onClick={()=>navigator("/Login")}>Back</button>
                 <h2>Hello {customer.name}</h2>
-                <Link to={"/Gallery"}> Our Games</Link>
+                <Link to={"/gallary/Gallery"}> Our Games</Link>
                 <br />
-                <Link to={"/ViewC"}> See My Details</Link>
+                <Link to={"/customers/ViewC"}> See My Details</Link>
                 <h3>Borrowed Game</h3>
                 {
                     borrowedgame.map(e =>
@@ -110,7 +110,7 @@ export default function BorrowedGame({ customer }) {
                     )
                 }
                 {(canBorrowGame == 1) ?
-                    <Link to={"/BorrowGame"}>BorrowingGame</Link> :
+                    <Link to={"/gallary/BorrowGame"}>BorrowingGame</Link> :
 
                     <lable>You can't take another game, before returning the games you've taken!</lable>
                 }

@@ -31,32 +31,32 @@ export default function SignIn() {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json())
-      .then(response => { alert("Welcome to the happy family of our playroom's customers")})
+      .then(response => { alert("Welcome to the happy family of our playroom's customers") })
       .catch(err => alert("ERROR"))
     navigate('/Login')
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form class="signin-form" onSubmit={handleSubmit(onSubmit)}>
 
       <input {...register("id")} placeholder="ID:" />
-      <p>{errors.firstName?.message}</p>
+      <label class="error-massage">{errors.id?.message}</label>
 
       <input {...register("name")} placeholder="Name:" />
-      <p>{errors.lastName?.message}</p>
+      <label class="error-massage">{errors.name?.message}</label>
 
       <input {...register("password")} placeholder="Password:" />
-      <p>{errors.phone?.message}</p>
+      <label class="error-massage">{errors.password?.message}</label>
 
       <input {...register("city")} placeholder="City:" />
-      <p>{errors.email?.message}</p>
+      <label class="error-massage">{errors.city?.message}</label>
 
       <input {...register("phone")} placeholder="Phone:" />
-      <p>{errors.password?.message}</p>
+      <label class="error-massage">{errors.phone?.message}</label>
 
-      <input {...register("gamesNumber")} placeholder="Games Number:"  type="number"/>
-      <p>{errors.password?.message}</p>
+      <input {...register("gamesNumber")} placeholder="Games Number:" type="number" />
+      <label  class="error-massage">{errors.gamesNumber?.message}</label>
 
-      <button id='button'  type="submit">SignIn</button>
+      <button class="submit-btn" type="submit">SignIn</button>
     </form>
   );
 }
