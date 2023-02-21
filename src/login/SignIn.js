@@ -36,27 +36,27 @@ export default function SignIn() {
     navigate('/Login')
   }
   return (
-    <form class="signin-form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="signin-form" onSubmit={handleSubmit(onSubmit)}>
 
       <input {...register("id")} placeholder="ID:" />
-      <label class="error-massage">{errors.id?.message}</label>
+      <label className="error-massage">{errors.id?.message}</label>
 
       <input {...register("name")} placeholder="Name:" />
-      <label class="error-massage">{errors.name?.message}</label>
+      <label className="error-massage">{errors.name?.message}</label>
 
       <input {...register("password")} placeholder="Password:" />
-      <label class="error-massage">{errors.password?.message}</label>
+      <label className="error-massage">{errors.password?.message}</label>
 
       <input {...register("city")} placeholder="City:" />
-      <label class="error-massage">{errors.city?.message}</label>
+      <label className="error-massage">{errors.city?.message}</label>
 
       <input {...register("phone")} placeholder="Phone:" />
-      <label class="error-massage">{errors.phone?.message}</label>
+      <label className="error-massage">{errors.phone?.message}</label>
 
       <input {...register("gamesNumber")} placeholder="Games Number:" type="number" />
-      <label  class="error-massage">{errors.gamesNumber?.message}</label>
+      <label  className="error-massage">{errors.gamesNumber?.message}</label>
 
-      <button class="submit-btn" type="submit">SignIn</button>
+      <button className="submit-btn" type="submit">SignIn</button>
     </form>
   );
 }

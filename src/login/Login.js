@@ -38,14 +38,14 @@ export default function Login({ setUser }) {
 
     return (
         <div >
-            <form class="login-form" onSubmit={handleSubmit(onSubmit)}>
-                <input class="id-field" {...register("id")} placeholder="ID" />
-                <label class="error-massage">{errors.id?.message}</label>
+            <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+                <input className="id-field" {...register("id")} placeholder="ID" />
+                <label className="error-massage">{errors.id?.message}</label>
 
-                <input class="password-field" {...register("password")} placeholder="Password" />
-                <label class="error-massage">{errors.password?.message}</label>
+                <input className="password-field" {...register("password")} placeholder="Password" />
+                <label className="error-massage">{errors.password?.message}</label>
 
-                <input class="submit-btn" type="submit" value={"Submit"} />            <Link to={"/login/SignIn"}> New Customer? please sign in first!</Link>
+                <input className="submit-btn" type="submit" value={"Submit"} />            <Link to={"/login/SignIn"}> New Customer? please sign in first!</Link>
 
             </form>
         </div>

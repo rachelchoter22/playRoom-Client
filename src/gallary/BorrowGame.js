@@ -62,7 +62,7 @@ export default function AddBorrowedGame({ customer }) {
             gamesAvailable.map(e =>
                 <div key={e.id}>
                     <lable>{e.name} {e.id}</lable>
-                    <input class="submit-btn" type='submit' value='Borrow' onClick={() => borrowGame(customerCode, e.id)} />
+                    <input className="submit-btn" type='submit' value='Borrow' onClick={() => borrowGame(customerCode, e.id)} />
                 </div>
             )
         }

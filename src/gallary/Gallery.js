@@ -83,8 +83,8 @@ export default function GameGallery({ customer }) {
             <label for="myCheck">show only games which are available for borrowing</label>
             {
                 <div>
-                    <table class="tableDeco">
-                        {allGames.map(x => <tr class="rowInTable" key={x.code}>
+                    <table className="tableDeco">
+                        {allGames.map(x => <tr className="rowInTable" key={x.code}>
                             <td>{x.name}</td>
                             <td>{x.minimalAge}</td>
                             <td>{x.maximalAge}</td>
