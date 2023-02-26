@@ -1,15 +1,16 @@
 import '../App.scss';
-import { userInfo } from "os";
+import { format } from "date-fns";
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function BorrowedGame({ customer }) {
-    const [customerStatus,setStatus]=useState(customer.status);
-    const navigator=useNavigate();
+    const [customerStatus, setStatus] = useState(customer.Status);
+    const navigator = useNavigate();
     const [borrowedgame, setborrowedgame] = useState([]);
     const [canBorrowGame, setcanBorroGame] = useState(1);
-    const customerId = customer.id;
-    const costomerStatus = customer.status;
+    const customerId = customer.Id;
+    const costomerStatus = customer.Status;
     useEffect(() => {
         fetch(`http://localhost:3003/customer/myBorrowedGames/${customerId}`, { method: "GET" })
             .then(response => response.json())
@@ -26,14 +27,14 @@ export default function BorrowedGame({ customer }) {
             })
         canBorrow(customerId);
     }, [])
-    const returnGame = (id, game_id) => {
+    const returnGame = (id, gameId) => {
         fetch(`http://localhost:3003/customer/return/returnGame`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
                 //     // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({ id: id, game_id: game_id })
+            body: JSON.stringify({ id: id, gameId: gameId })
         })
             .then(response => response.json())
             .then(data => {
@@ -42,11 +43,11 @@ export default function BorrowedGame({ customer }) {
                     setborrowedgame([...withoutgame]);
                 }
                 else {
-                    alert('you have got problem in your details ')
+                    alert('you have problem in your details ')
                 }
             })
             .catch((err) => {
-                alert('you er got problem in your details ')
+                alert('you have problem in your details')
             })
 
     }
@@ -64,18 +65,18 @@ export default function BorrowedGame({ customer }) {
                 }
             })
             .catch((err) => {
-                alert('cant get borrow ', err)
+                alert('cant get borrow ' + err)
             })
 
     }
-    const ablecustomer=(id)=>{
+    const ablecustomer = (id) => {
         fetch(`http://localhost:3003/customer/ableCustomer`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
                 //     // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({ id: id})
+            body: JSON.stringify({ id: id })
         })
             .then(response => response.json())
             .then(data => {
@@ -91,28 +92,33 @@ export default function BorrowedGame({ customer }) {
             })
     }
     return (
-        
-        customerStatus == 1 ? <div><button onClick={()=>{navigator("/Login")}}>Back</button><h3>You are suspended.</h3><br/><button onClick={()=>ablecustomer(customer.id)}>Go Active!</button> </div> :
-            <div id="BorrowedGame">
-                <button onClick={()=>navigator("/Login")}>Back</button>
-                <h2>Hello {customer.name}</h2>
+
+        customerStatus == 1 ? <div><button onClick={() => { navigator("/login/Login") }}>Back</button><h3>You are suspended.</h3><br /><button onClick={() => ablecustomer(customer.Id)}>Go Active!</button> </div> :
+            <div className='borrow-gmaes-frame'>
+                <button className='back-btn' onClick={() => navigator("/login/Login")}>Back to login page</button>
+                <span className='user-image'></span>
+                <h2>Hello {customer.Name}</h2>
                 <Link to={"/gallary/Gallery"}> Our Games</Link>
                 <br />
                 <Link to={"/customers/ViewC"}> See My Details</Link>
+
+
+                <div className='borrow-link'>
+                    {(canBorrowGame == 1) ?
+                        <Link to={"/gallary/BorrowGame"}>BorrowingGame</Link> :
+
+                        <lable>You can't take another game, before returning the games you've taken!</lable>}
+                </div>
+
                 <h3>Borrowed Game</h3>
                 {
                     borrowedgame.map(e =>
-                        <div key={e.id}>
-                            <lable>{e.name} {e.borrowDate}  </lable>
-
-                            <input id='button' type='submit' value='Return' onClick={() => returnGame(e.id, e.game_id)} />
+                        <div className='game-card' key={e.Id}>
+                            <div>Name: {e.name}  </div>
+                            <div>Borrow date: {format(new Date(e.BorrowDate), "dd-MM-yyyy")} </div>
+                            <input id='button' type='submit' value='Return' onClick={() => returnGame(e.Id, e.GameId)} />
                         </div>
                     )
-                }
-                {(canBorrowGame == 1) ?
-                    <Link to={"/gallary/BorrowGame"}>BorrowingGame</Link> :
-
-                    <lable>You can't take another game, before returning the games you've taken!</lable>
                 }
             </div>
     )

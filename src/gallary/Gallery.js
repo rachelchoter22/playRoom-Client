@@ -2,6 +2,7 @@ import '../App.scss';
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from 'react-router-dom';
 
+
 export default function GameGallery({ customer }) {
     const [allGames, setgames] = useState([]);
     const navigate = useNavigate();
@@ -56,8 +57,8 @@ export default function GameGallery({ customer }) {
         }
     }
 
-    const knowGame = (game_id) => {
-        fetch(`http://localhost:3003/customer/knowgame/${game_id}/${customer.code}`, {
+    const knowGame = (gameId) => {
+        fetch(`http://localhost:3003/customer/knowgame/${gameId}/${customer.Id}`, {
             method: "GET",
         })
             .then(response => response.json())
@@ -77,48 +78,42 @@ export default function GameGallery({ customer }) {
 
 
     return (
-        customer.id_Type == 1 ? <div className='games-frame'><button id="BackButton" onClick={() => navigate('/customers/customer')}>Back</button>
+        customer.CustomerTypeId == 1 ? <div className='games-frame'><button id="BackButton" onClick={() => navigate('/customers/customer')}>Back</button>
             <h3>Our Games</h3>
             <input type="checkbox" id="myCheck" onChange={() => availableonly()} />
             <label for="myCheck">show only games which are available for borrowing</label>
             {
-                <div>
+                <div className='game-list'>
 
-                    {allGames.map(x => <div className="game-card" key={x.code}>
-                        <div><label>name:</label> <label>{x.name}</label></div>
-                        <div><label>minimalAge:</label>  <label>{x.minimalAge}</label></div>
-                        <div><label>maximalAge:</label>  <label>{x.maximalAge}</label></div>
-                        <div><label>company:</label> <label>{x.company}</label></div>
-                        <div><label>minutesDuration:</label> <label>{x.minutesDuration}</label></div>
-                        <div><label>existingNumber:</label> <label>{x.existingNumber}</label></div>
-                        <button onClick={() => knowGame(x.id)}> Do I know it? </button>
+                    {allGames.map(x => <div className="game-card" key={x.Id}>
+                        <img src={require(`../../public/images/${x.imageName}.jpg`)} />
+                        <div><label>name:</label> <label>{x.Name}</label></div>
+                        <div><label>minimalAge:</label>  <label>{x.MinimalAge}</label></div>
+                        <div><label>maximalAge:</label>  <label>{x.MaximalAge}</label></div>
+                        <div><label>company:</label> <label>{x.Company}</label></div>
+                        <div><label>minutesDuration:</label> <label>{x.MinutesDuration}</label></div>
+                        <div><label>existingNumber:</label> <label>{x.ExistingNumber}</label></div>
+                        <button className='clock-rotate-left-icon' onClick={() => knowGame(x.Id)}> Do I know it? </button>
                     </div>)}
 
                 </div>}
-        </div> : <div><button onClick={() => navigate('/manager')}>Back</button>
+        </div> : <div><button className='back-icon' onClick={() => navigate('/manager')}>Back</button>
             <h3>Our Games</h3>
             <input type="checkbox" id="myCheck" onChange={() => availableonly()} />
             <label for="myCheck">show only games which are available for borrowing</label>
             {
-                <div>
-                    <table>
-                        {allGames.map(x => 
-                        <tr key={x.code}>
-                            {/* <label>{x.name}</label>
-                            <label>{x.minimalAge}</label>
-                            <label>{x.maximalAge}</label>
-                            <label>{x.company}</label>
-                            <label>{x.minutesDuration}</label>
-                            <label>{x.existingNumber}</label> */}
-
-                            <div><label>name:</label> <label>{x.name}</label></div>
-                        <div><label>minimalAge:</label>  <label>{x.minimalAge}</label></div>
-                        <div><label>maximalAge:</label>  <label>{x.maximalAge}</label></div>
-                        <div><label>company:</label> <label>{x.company}</label></div>
-                        <div><label>minutesDuration:</label> <label>{x.minutesDuration}</label></div>
-                        <div><label>existingNumber:</label> <label>{x.existingNumber}</label></div>
-                        </tr>)}
-                    </table>
+                <div className='game-list'>
+                    {allGames.map(x =>
+                        <div className="game-card" key={x.id}>
+                            <img src={require(`../../public/images/${x.imageName}.jpg`)} />
+                            <div><label>name:</label> <label>{x.Name}</label></div>
+                            <div><label>minimalAge:</label>  <label>{x.MinimalAge}</label></div>
+                            <div><label>maximalAge:</label>  <label>{x.MaximalAge}</label></div>
+                            <div><label>company:</label> <label>{x.Company}</label></div>
+                            <div><label>minutesDuration:</label> <label>{x.MinutesDuration}</label></div>
+                            <div><label>existingNumber:</label> <label>{x.ExistingNumber}</label></div>
+                        </div>
+                    )}
                 </div>}
         </div>)
 }

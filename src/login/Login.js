@@ -6,7 +6,7 @@ import * as yup from "yup";
 
 const schema = yup.object({
     password: yup.string().required(),
-    id: yup.string().required(),
+    userName: yup.string().required(),
 }).required();
 
 export default function Login({ setUser }) {
@@ -25,7 +25,7 @@ export default function Login({ setUser }) {
                 if (answer === null)
                     alert("Wrong details were inserted")
                 setUser(answer)
-                if (answer.id_Type === 1) {
+                if (answer.CustomerTypeId === 1) {
                     navigate('/customers/customer')
                 }
                 else {
@@ -39,13 +39,14 @@ export default function Login({ setUser }) {
     return (
         <div >
             <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-                <input className="id-field" {...register("id")} placeholder="ID" />
-                <label className="error-massage">{errors.id?.message}</label>
+                <input className="userName-field" {...register("userName")} placeholder="user name" />
+                <label className="error-massage">{errors.userName?.message}</label>
 
                 <input className="password-field" {...register("password")} placeholder="Password" />
                 <label className="error-massage">{errors.password?.message}</label>
 
-                <input className="submit-btn" type="submit" value={"Submit"} />            <Link to={"/login/SignIn"}> New Customer? please sign in first!</Link>
+                <button className="submit-btn enter-icon" type="submit" >Login</button>
+                <Link to={"/login/SignIn"}> New Customer? please sign in first!</Link>
 
             </form>
         </div>

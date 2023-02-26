@@ -1,10 +1,14 @@
 body {
   margin: 0;
-  font-family: ShantellSans-Light, Mukta-Light;
-  background-image: url(../public/images/play-room.jpg);
+  font-family: ShantellSans-Light, Mukta-Light, Rubik-Light;
+  /* background-image: url(../public/images/play-room.jpg); */
   background-attachment: fixed;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  /* background-color: #b4c7c2; */
+}
+body:has(.login-form,.signin-form) {
+  background-image: url(../public/images/play-room.jpg);
 }
 @font-face {
   font-family: ShantellSans-Bold;
@@ -21,4 +25,12 @@ body {
 @font-face {
   font-family: Mukta-Light;
   src: url(../public/fonts/Mukta/Mukta-Light.ttf);
+}
+@font-face {
+  font-family: Roboto-Light;
+  src: url(../public/fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: Rubik-Light;
+  src: url(../public/fonts/Rubik/Rubik-Light.ttf);
 }

@@ -6,12 +6,12 @@ import * as yup from "yup";
 // const [customers, setCustomers] = useState([]);
 
 const schema = yup.object({
-  id: yup.string().required(),
+  userName: yup.string().required(),
   name: yup.string().required(),
   password: yup.string().required(),
   name: yup.string().required(),
   city: yup.string().required(),
-  phone: yup.string().required(),
+  PhoneNumber: yup.string().required(),
   gamesNumber: yup.number().integer().required(),
 }).required();
 
@@ -38,8 +38,8 @@ export default function SignIn() {
   return (
     <form className="signin-form" onSubmit={handleSubmit(onSubmit)}>
 
-      <input {...register("id")} placeholder="ID:" />
-      <label className="error-massage">{errors.id?.message}</label>
+      <input {...register("userName")} placeholder="userName:" />
+      <label className="error-massage">{errors.userName?.message}</label>
 
       <input {...register("name")} placeholder="Name:" />
       <label className="error-massage">{errors.name?.message}</label>
@@ -50,13 +50,13 @@ export default function SignIn() {
       <input {...register("city")} placeholder="City:" />
       <label className="error-massage">{errors.city?.message}</label>
 
-      <input {...register("phone")} placeholder="Phone:" />
-      <label className="error-massage">{errors.phone?.message}</label>
+      <input {...register("PhoneNumber")} placeholder="PhoneNumber:" />
+      <label className="error-massage">{errors.PhoneNumber?.message}</label>
 
       <input {...register("gamesNumber")} placeholder="Games Number:" type="number" />
       <label  className="error-massage">{errors.gamesNumber?.message}</label>
 
-      <button className="submit-btn" type="submit">SignIn</button>
+      <button className="submit-btn add-user-icon" type="submit">SignIn</button>
     </form>
   );
 }

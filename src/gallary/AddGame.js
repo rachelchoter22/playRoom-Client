@@ -13,26 +13,27 @@ const schema = yup.object({
   game_id: yup.string().required(),
   gameTime: yup.number().integer().required(),
   existingNumber: yup.number().integer().required(),
+  imagename: yup.string().required()
 }).required();
 
-export default function LogInManager() {}
-  const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema)
-  });
+export default function LogInManager() { }
+const navigate = useNavigate()
+const { register, handleSubmit, formState: { errors } } = useForm({
+  resolver: yupResolver(schema)
+});
 
-  // const addCustomer = (data) => {
+// const addCustomer = (data) => {
 
-  // }
-  const onSubmit = data => {
-    console.log(data, "data")
-    fetch(`http://localhost:3000/LogInManager/games`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(response => response.json())
-      .then(response => {console.log(response); alert("Adding a game was done successfully!")})
-      .catch(err => alert("ERROR"))
-    navigate('/App')
-  }
+// }
+const onSubmit = data => {
+  console.log(data, "data")
+  fetch(`http://localhost:3000/LogInManager/games`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(response => { console.log(response); alert("Adding a game was done successfully!") })
+    .catch(err => alert("ERROR"))
+  navigate('/App')
+}
