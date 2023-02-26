@@ -78,7 +78,8 @@ export default function GameGallery({ customer }) {
 
 
     return (
-        customer.CustomerTypeId == 1 ? <div className='games-frame'><button id="BackButton" onClick={() => navigate('/customers/customer')}>Back</button>
+        customer.CustomerTypeId == 1 ? <div className='games-frame'>
+            <button className='back-icon' onClick={() => navigate('/customers/customer')}>Back</button>
             <h3>Our Games</h3>
             <input type="checkbox" id="myCheck" onChange={() => availableonly()} />
             <label for="myCheck">show only games which are available for borrowing</label>
@@ -97,7 +98,7 @@ export default function GameGallery({ customer }) {
                     </div>)}
 
                 </div>}
-        </div> : <div><button className='back-icon' onClick={() => navigate('/manager')}>Back</button>
+        </div> : <div  className='games-frame'><button className='back-icon' onClick={() => navigate('/manager')}>Back</button>
             <h3>Our Games</h3>
             <input type="checkbox" id="myCheck" onChange={() => availableonly()} />
             <label for="myCheck">show only games which are available for borrowing</label>

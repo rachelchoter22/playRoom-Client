@@ -22,7 +22,8 @@
 }
 .games-frame,
 .borrow-gmaes-frame,
-.users-frame {
+.users-frame,
+.manager-frame {
   background-color: white;
   width: 90%;
   margin: 2%;
@@ -37,6 +38,7 @@
 .game-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .game-card {
   display: flex;
@@ -90,6 +92,7 @@ button {
   cursor: pointer;
   box-shadow: 0 3px 8px 1px rgb(0 0 0 / 20%);
   background-color: transparent;
+  background-color: #a2f1f5;
 }
 .error-massage {
   color: #e2464f;
@@ -100,23 +103,6 @@ button {
   font-size: 11px;
   padding-top: 2px;
 }
-.back-btn {
-  // background-image: url(http://localhost:3000/static/media/arrow-left-solid.793ac16….svg);
-  // background-repeat: no-repeat;
-  // padding-left: 12px;
-  // background-size: 25px;
-  // background-position-x: left;
-  // background-position-y: center;
-  width: 204px;
-}
-// .App {
-//   text-align: center;
-// }
-
-// .App-logo {
-//   height: 40vmin;
-//   pointer-events: none;
-// }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -192,9 +178,12 @@ table {
   content: url(../public/images/plus-solid.svg);
   @extend .btn-left;
 }
-.back-icon::before {
-  content: url(../public/images/arrow-left-solid.svg);
-  @extend .btn-left;
+.back-icon {
+  width: 250px;
+  &::before {
+    content: url(../public/images/arrow-left-solid.svg);
+    @extend .btn-right;
+  }
 }
 .house-icon::before {
   content: url(../public/images/house-solid.svg);
@@ -206,7 +195,7 @@ table {
 }
 .suspend-icon::before {
   content: url(../public/images/user-minus-solid.svg);
-  @extend .btn-right;
+  @extend .btn-left;
 }
 .enter-icon::before {
   content: url(../public/images/arrow-right-to-bracket-solid.svg);
@@ -233,10 +222,11 @@ table {
 }
 .btn-right {
   float: left;
-  width: 24px;
-  padding-right: 26px;
+  width: 18px;
+  padding-left: 44px;
   padding-left: -11px;
-  margin-left: -18px;
+  margin-left: -17px;
+  margin-right: -45px;
 }
 .user-image {
   background-image: url(../public/images/user-astronaut-solid.svg);

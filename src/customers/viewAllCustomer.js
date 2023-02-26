@@ -30,7 +30,7 @@ export default function Customers() {
                 'Content-Type': 'application/json'
                 //     // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.sdivingify({ Id: Id })
+            body: JSON.stringify({ Id: Id })
         })
             .then(response => response.json())
             .then(data => {

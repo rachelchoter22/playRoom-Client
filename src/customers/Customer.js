@@ -93,9 +93,9 @@ export default function BorrowedGame({ customer }) {
     }
     return (
 
-        customerStatus == 1 ? <div><button onClick={() => { navigator("/login/Login") }}>Back</button><h3>You are suspended.</h3><br /><button onClick={() => ablecustomer(customer.Id)}>Go Active!</button> </div> :
+        customerStatus == 1 ? <div className='borrow-gmaes-frame'><button className='back-icon' onClick={() => { navigator("/login/Login") }}>Back</button><h3>You are suspended.</h3><br /><button onClick={() => ablecustomer(customer.Id)}>Go Active!</button> </div> :
             <div className='borrow-gmaes-frame'>
-                <button className='back-btn' onClick={() => navigator("/login/Login")}>Back to login page</button>
+                <button className='back-icon' onClick={() => navigator("/login/Login")}>Back to login page</button>
                 <span className='user-image'></span>
                 <h2>Hello {customer.Name}</h2>
                 <Link to={"/gallary/Gallery"}> Our Games</Link>
@@ -111,15 +111,16 @@ export default function BorrowedGame({ customer }) {
                 </div>
 
                 <h3>Borrowed Game</h3>
-                {
-                    borrowedgame.map(e =>
-                        <div className='game-card' key={e.Id}>
-                            <div>Name: {e.name}  </div>
-                            <div>Borrow date: {format(new Date(e.BorrowDate), "dd-MM-yyyy")} </div>
-                            <input id='button' type='submit' value='Return' onClick={() => returnGame(e.Id, e.GameId)} />
-                        </div>
-                    )
-                }
-            </div>
+                <div className='game-list'>
+                    {
+                        borrowedgame.map(e =>
+                            <div className='game-card' key={e.Id}>
+                                <div>Name: {e.name}  </div>
+                                <div>Borrow date: {format(new Date(e.BorrowDate), "dd-MM-yyyy")} </div>
+                                <input id='button' type='submit' value='Return' onClick={() => returnGame(e.Id, e.GameId)} />
+                            </div>
+                        )
+                    }
+                </div></div>
     )
 }

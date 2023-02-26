@@ -9,7 +9,7 @@ export default function Manager({ idType }) {
     useEffect(() => {
         
     },[])
-    return <div id="Manager">
+    return <div className="manager-frame">
         <button onClick={()=>navigator("/login/Login")}>Back</button>
         <h3>Manager</h3>
         <Link to={"/gallary/Gallery"}>Games</Link><br></br><br></br>

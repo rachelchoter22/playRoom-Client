@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 // const [customers, setCustomers] = useState([]);
@@ -54,9 +54,11 @@ export default function SignIn() {
       <label className="error-massage">{errors.PhoneNumber?.message}</label>
 
       <input {...register("gamesNumber")} placeholder="Games Number:" type="number" />
-      <label  className="error-massage">{errors.gamesNumber?.message}</label>
+      <label className="error-massage">{errors.gamesNumber?.message}</label>
 
       <button className="submit-btn add-user-icon" type="submit">SignIn</button>
+      <Link to={"/login/Login"}>Back to login page</Link>
+
     </form>
   );
 }
