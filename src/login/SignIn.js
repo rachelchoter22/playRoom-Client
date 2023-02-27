@@ -57,7 +57,7 @@ export default function SignIn() {
       <label className="error-massage">{errors.gamesNumber?.message}</label>
 
       <button className="submit-btn add-user-icon" type="submit">SignIn</button>
-      <Link to={"/login/Login"}>Back to login page</Link>
+      <Link  to={"/login/Login"}>Back to login page</Link>
 
     </form>
   );

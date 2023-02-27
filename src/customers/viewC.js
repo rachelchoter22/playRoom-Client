@@ -33,7 +33,7 @@ export default function ViewC({ customer }) {
     }
 
     return <div className='borrow-gmaes-frame'>
-        <button onClick={() => { navigate(-1) }}>Back</button>
+        <button className="back-icon" onClick={() => { navigate(-1) }}>Back</button>
         <span className='user-image-2'></span>
         <h1>Hello {customer.Name}</h1>
         <div> Id: {customer.Id}</div>

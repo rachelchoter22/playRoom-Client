@@ -48,7 +48,7 @@ export default function Customers() {
 
     return (
         <div className="users-frame">
-            <button onClick={() => navigator(-1)}>Back</button>
+            <button className="back-icon"  onClick={() => navigator(-1)}>Back</button>
             <div className="user-list">
                 {customers.map(x => <div className="user-card" key={x.Id}>
                     <div>id: {x.Id}</div>
